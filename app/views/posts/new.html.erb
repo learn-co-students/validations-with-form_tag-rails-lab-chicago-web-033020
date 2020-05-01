@@ -1,0 +1,19 @@
+<h1>Create a New Post</h1>
+
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag @post do %>
+  Title: <%= text_field_tag "title:", @post.title %> <br>
+  Content: <%= text_field_tag "content", @post.title %> <br>
+  Category: <%= text_field_tag "category", @post.category %> <br>
+  <%= submit_tag "Create Post" %>
+<% end %>
